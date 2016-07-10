@@ -1,0 +1,38 @@
+{
+	"atomic_save": false,
+	"color_scheme": "Packages/User/SublimeLinter/base16-eighties.dark (SL).tmTheme",
+	"draw_white_space": "all",
+	"ensure_newline_at_eof_on_save": true,
+	"folder_exclude_patterns":
+	[
+		".sass-cache",
+		".svn",
+		".git",
+		".hg",
+		"CVS"
+	],
+	"font_size": 18,
+	"ignored_packages":
+	[
+		"C#",
+		"C++",
+		"Clojure",
+		"PyV8",
+		"Vintage"
+	],
+	"line_padding_bottom": 2,
+	"line_padding_top": 2,
+	"rulers":
+	[
+		80
+	],
+	"tab_size": 2,
+	"theme": "Spacegray Eighties.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_automatic_white_space": true,
+	"trim_trailing_white_space_on_save": true,
+	"use_tab_stops": true,
+	"word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?",
+	"word_wrap": false,
+	"wrap_width": 80
+}
