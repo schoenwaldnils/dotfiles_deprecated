@@ -117,6 +117,7 @@ alias ms='bundle exec middleman server -p 4242'
 alias bswp='function() {source ~/.aliases && browser-sync start --proxy "$(fab config:mbb getProperty:host |tail -1)" --files "wp-content/themes/$@/build/*.css" --reload-delay "50";}'
 
 # wakeonlan
+# if not installed: brew install wakeonlan
 alias wblob='wakeonlan 00:25:22:03:D1:21'
 
 # npm
