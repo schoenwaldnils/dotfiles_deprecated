@@ -186,4 +186,4 @@
 [fetch]
         fsckobjects = true
 [receive]
-        fsckObjects = true
+        fsckobjects = true
