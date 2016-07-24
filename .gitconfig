@@ -1,10 +1,14 @@
 [alias]
 
+  g = 'git'
+
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	log = log --pretty=oneline -n 20 --graph --abbrev-commit
 
 	# View the current working tree status using the short format
-	s = status -s -b
+	s = fetch -q && status -s -b
+	# View the current working tree status using the short format without fetch
+	sl = status -s -b
 
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
@@ -12,11 +16,24 @@
 	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
 	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 
+	# Add file to cached files
+	a = add
+
 	# Pull in remote changes for the current repository and all its submodules
 	l = !"git pull; git submodule foreach git pull origin master"
 
+  # Commit with message
+  c = commit -m
+  cb = commit -m "Build"
+
+  # Reset file/s to head
+  r = checkout
+
+	# Push local changes to tracked remote branch
+	p = push origin
+
 	# Clone a repository including all submodules
-	c = clone --recursive
+	clone = clone --recursive
 
 	# Switch to a branch, creating it if necessary
 	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
@@ -68,6 +85,20 @@
 			git commit --amend -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
 		fi \
 	}; f"
+
+	compare = "!f() { git log --oneline $1..$2;  }; f"
+
+	stash = 'git stash'
+	pop = 'git stash pop'
+
+	v = 'git describe master --abbrev=0 --tags'
+
+  # Git flow
+  gf = flow
+  gff = flow feature
+  gfh = flow hotfix
+  gfr = flow release
+
 
 [apply]
 
