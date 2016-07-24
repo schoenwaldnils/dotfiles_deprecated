@@ -87,28 +87,6 @@ alias og='subl ~/.gitconfig'
 # alias sa='source ~/.aliases'
 alias sa='source ~/.zshrc'
 
-# git
-alias g='git'
-
-alias s='git fetch -q && git status -sb'
-alias sl='git status -sb'
-alias p='git push origin'
-alias l='git pull'
-alias a='git add'
-alias c='git commit -m'
-alias cb='git commit -m 'Build''
-alias b='git checkout -q'
-alias r='git checkout'
-alias m='git merge'
-alias gf='git flow'
-alias gff='git flow feature'
-alias gfh='git flow hotfix'
-alias gfr='git flow release'
-alias gclean='git clean -d -f'
-alias gv='git describe master --abbrev=0 --tags'
-alias stash='git stash'
-alias pop='git stash pop'
-
 # middleman
 alias mb='bundle exec middleman build'
 alias ms='bundle exec middleman server -p 4242'
