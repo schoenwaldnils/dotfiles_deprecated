@@ -3,7 +3,7 @@
   g = 'git'
 
   # View abbreviated SHA, description, and history graph of the latest 20 commits
-  hist = log --pretty=format:\"%ad %h | [%an] %s%d\" --graph --date=short
+  hist = log --pretty=format:\"%Cred%ad %Cgreen%h %Creset| %Cblue[%an] %Creset%s%d\" --graph --date=short
 
   # View the current working tree status using the short format
   s = fetch -q && status -s -b
