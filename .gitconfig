@@ -3,7 +3,7 @@
   g = 'git'
 
   # View abbreviated SHA, description, and history graph of the latest 20 commits
-  hist = log --pretty=format:\"%Cred%ad %Cgreen%h %Creset| %Cblue[%an] %Creset%s%d\" --graph --date=short
+  hist = log --pretty=format:\"%Cred%ad %Cgreen%h %Creset| %Cblue[%an] %Creset%s%Cgreen%d\" --graph --date=short
 
   # View the current working tree status using the short format
   s = fetch -q && status -s -b
@@ -99,6 +99,8 @@
   gfh = flow hotfix
   gfr = flow release
 
+  # list aliases
+  la = "!git config -l | grep alias | cut -c 7-"
 
 [apply]
 
