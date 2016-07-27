@@ -74,6 +74,16 @@ alias fu8='function() {fab config:mbb drush:"config-export staging -y";}'
 
 alias docker='function() {fab config:mbb docker:"$@";}'
 
+# git
+
+alias s='g s'
+alias a='g a'
+alias l='g l'
+alias c='g c'
+alias cb='g cb'
+alias r='g r'
+alias p='g p'
+
 # QR
 alias qr='function() {qrcode-terminal "$@"; echo "$@";}'
 alias fqr='function() {qrcode-terminal http://$(hostname):8888/"$@"; echo http://$(hostname):8888/"$@";}'
@@ -84,7 +94,6 @@ alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 # open aliases
 alias oa='subl ~/.aliases'
 alias og='subl ~/.gitconfig'
-# alias sa='source ~/.aliases'
 alias sa='source ~/.zshrc'
 
 # middleman
