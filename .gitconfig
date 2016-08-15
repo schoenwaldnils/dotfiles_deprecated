@@ -1,7 +1,4 @@
 [alias]
-
-  g = 'git'
-
   # View abbreviated SHA, description, and history graph of the latest 20 commits
   hist = log --pretty=format:\"%Cred%ad %Cgreen%h %Creset| %Cblue[%an] %Creset%s%Cgreen%d\" --graph --date=short
 
@@ -17,9 +14,6 @@
   # Show the diff between the latest commit and the current state
   dw = diff --word-diff
 
-  # `git di $number` shows the diff between the state `$number` revisions ago and the current state
-  di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
-
   # Add file to cached files
   a = add
 
@@ -32,6 +26,9 @@
 
   # Reset file/s to head
   r = checkout
+
+  # switch to branch
+  b = checkout -q
 
   # Push local changes to tracked remote branch
   p = push origin
@@ -50,26 +47,8 @@
   # Amend the currently staged files to the latest commit
   amend = commit --amend --reuse-message=HEAD
 
-  # Credit an author on the latest commit
-  credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
-
-  # Interactive rebase with the given number of latest commits
-  reb = "!r() { git rebase -i HEAD~$1; }; r"
-
   # Remove the old tag with this name and tag the latest commit with it.
   retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
-
-  # Find branches containing commit
-  fb = "!f() { git branch -a --contains $1; }; f"
-
-  # Find tags containing commit
-  ft = "!f() { git describe --always --contains $1; }; f"
-
-  # Find commits by source code
-  fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
-
-  # Find commits by commit message
-  fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
 
   # Remove branches that have already been merged with master
   # a.k.a. ‘delete merged’
@@ -78,30 +57,17 @@
   # List contributors with number of commits
   contributors = shortlog --summary --numbered
 
-  # Merge GitHub pull request on top of the `master` branch
-  mpr = "!f() { \
-    if [ $(printf \"%s\" \"$1\" | grep '^[0-9]\\+$' > /dev/null; printf $?) -eq 0 ]; then \
-      git fetch origin refs/pull/$1/head:pr/$1 && \
-      git rebase master pr/$1 && \
-      git checkout master && \
-      git merge pr/$1 && \
-      git branch -D pr/$1 && \
-      git commit --amend -m \"$(git log -1 --pretty=%B)\n\nCloses #$1.\"; \
-    fi \
-  }; f"
-
   compare = "!f() { git log --oneline $1..$2;  }; f"
 
-  stash = 'git stash'
-  pop = 'git stash pop'
+  pop = stash pop
 
-  v = 'git describe master --abbrev=0 --tags'
+  v = describe master --abbrev=0 --tags
 
   # Git flow
-  gf = flow
-  gff = flow feature
-  gfh = flow hotfix
-  gfr = flow release
+  f = flow
+  ff = flow feature
+  fh = flow hotfix
+  fr = flow release
 
   # list aliases
   la = "!git config -l | grep alias | cut -c 7-"
@@ -209,11 +175,11 @@
   name = Nils Schönwald
   email = nils@schoenwald.media
 [difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
 [mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 
 [transfer]
         fsckobjects = true

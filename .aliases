@@ -9,9 +9,7 @@ alias -- -="cd -"
 
 alias mkdir='function() {mkdir -pv "$@" && cd "$@";}'
 alias rmd='rm -r'
-
-# List all files colorized in long format
-alias l="ls -lF -G"
+alias copy='function(){cat $@ | pbcopy}'
 
 # List all files colorized in long format, including dot files
 alias la="ls -laF -G"
@@ -25,6 +23,12 @@ export LS_COLORS='no=00:fi=00:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40
 
 # Enable aliases to be sudo’ed
 alias sudo='sudo '
+
+# Helpers
+alias grep='grep --color=auto' # Always highlight grep search term
+alias ping='ping -c 5'      # Pings with 5 packets, not unlimited
+alias df='df -h'            # Disk free, in gigabytes, not bytes
+alias du='du -h -c'         # Calculate total disk usage for a folder
 
 # IP addresses
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
@@ -72,17 +76,15 @@ alias fd='function() {fab config:mbb drush:fd;}'
 alias fu='function() {fab config:mbb drush:"fu $@ -y";}'
 alias fu8='function() {fab config:mbb drush:"config-export staging -y";}'
 
-alias docker='function() {fab config:mbb docker:"$@";}'
+#alias docker='function() {fab config:mbb docker:"$@";}'
+alias docker=docker
 
 # git
+alias g='git'
 
-alias s='g s'
-alias a='g a'
-alias l='g l'
-alias c='g c'
-alias cb='g cb'
-alias r='g r'
-alias p='g p'
+for al in `__git_aliases`; do
+  alias g$al="git $al"
+done
 
 # QR
 alias qr='function() {qrcode-terminal "$@"; echo "$@";}'

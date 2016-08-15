@@ -70,7 +70,7 @@ ZSH_THEME="igorsilva"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow z)
+plugins=(git git-flow git-completion z)
 
 # User configuration
 
@@ -102,6 +102,8 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 
+fpath=(~/.zsh $fpath)
+source ~/.git-completion.bash
 source ~/.aliases
 
 # include Z, yo
