@@ -81,6 +81,16 @@ alias docker=docker
 
 # git
 alias g='git'
+alias s='gs'
+alias sf='gsf'
+alias a='ga'
+alias p='gp'
+alias l='gl'
+alias b='gb'
+alias r='gr'
+alias stash='git stash'
+alias pop='git stash pop'
+alias cz='git cz'
 
 for al in `__git_aliases`; do
   alias g$al="git $al"
@@ -110,10 +120,7 @@ alias bswp='function() {source ~/.aliases && browser-sync start --proxy "$(fab c
 alias wblob='wakeonlan 00:25:22:03:D1:21'
 
 # npm
-alias nwc='npm run watch-css'
-alias nbc='npm run build-css'
-alias nwj='npm run watch-js'
-alias nbj='npm run build-js'
+alias test='npm run test'
 
 # sourcetree
 alias stree='open -a SourceTree "$(git rev-parse --show-toplevel)"'

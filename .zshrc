@@ -13,9 +13,6 @@ antigen bundle git-flow
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-# Load the theme.
-# antigen theme kolo
-
 # Tell antigen that you're done.
 antigen apply
 
@@ -24,12 +21,10 @@ export ZSH=/Users/nils/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="igorsilva"
+ZSH_THEME="schoenwaldnils"
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -70,7 +65,7 @@ ZSH_THEME="igorsilva"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-flow git-completion z)
+plugins=(git git-flow git-completion z git-prompt)
 
 # User configuration
 
@@ -110,3 +105,6 @@ source ~/.aliases
 . ~/z.sh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+export NVM_DIR="/Users/nils/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

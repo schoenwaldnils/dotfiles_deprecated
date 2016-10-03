@@ -24,7 +24,8 @@
 	"line_padding_top": 2,
 	"rulers":
 	[
-		80
+		80,
+		100
 	],
 	"tab_size": 2,
 	"theme": "Spacegray Eighties.sublime-theme",

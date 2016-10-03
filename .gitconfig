@@ -3,10 +3,10 @@
   hist = log --pretty=format:\"%Cred%ad %Cgreen%h %Creset| %Cblue[%an] %Creset%s%Cgreen%d\" --graph --date=short
 
   # View the current working tree status using the short format
-  s = !"git fetch -q && git status -s -b"
+  sf = !"git fetch -q && git status -s -b"
 
   # View the current working tree status using the short format without fetch
-  sl = status -s -b
+  s = status -s -b
 
   # Show the diff between the latest commit and the current state
   d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
@@ -139,7 +139,7 @@
 
   # Include summaries of merged commits in newly created merge commit messages
   log = true
-  tool = p4merge
+  tool = meld
 
 [push]
 
@@ -175,11 +175,11 @@
   name = Nils Schönwald
   email = nils@schoenwald.media
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 
 [transfer]
         fsckobjects = true
