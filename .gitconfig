@@ -187,3 +187,5 @@
         fsckobjects = true
 [receive]
         fsckobjects = true
+[clean]
+  requireForce = false
