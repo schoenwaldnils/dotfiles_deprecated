@@ -80,21 +80,26 @@ alias fu8='function() {fab config:mbb drush:"config-export staging -y";}'
 alias docker=docker
 
 # git
+# https://hub.github.com/
+alias git=hub
+
 alias g='git'
-alias s='gs'
-alias sf='gsf'
-alias a='ga'
-alias p='gp'
-alias l='gl'
-alias b='gb'
-alias r='gr'
+alias gc='git commit -m'
+alias s='git s'
+alias sf='git sf'
+alias a='git a'
+alias p='git p'
+alias l='git l'
+alias b='git b'
+alias r='git r'
 alias stash='git stash'
 alias pop='git stash pop'
+alias gf='git flow'
+alias gff='git flow feature'
+alias gfh='git flow hotfix'
+alias gfr='git flow release'
 alias cz='git cz'
-
-for al in `__git_aliases`; do
-  alias g$al="git $al"
-done
+alias cleanbranches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 
 # QR
 alias qr='function() {qrcode-terminal "$@"; echo "$@";}'
