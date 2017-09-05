@@ -7,7 +7,6 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 
-alias mkdir='function() {mkdir -pv "$@" && cd "$@";}'
 alias rmd='rm -r'
 alias copy='function(){cat $@ | pbcopy}'
 
@@ -32,7 +31,7 @@ alias du='du -h -c'         # Calculate total disk usage for a folder
 
 # IP addresses
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com'
-alias localip='ipconfig getifaddr en0'
+alias localip='ipconfig getifaddr en0 && ipconfig getifaddr en0 | pbcopy'
 alias ips='ifconfig -a | grep -o "inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)" | awk "{ sub(/inet6? (addr:)? ?/, \"\"); print }"'
 
 # Show/hide hidden files in Finder
@@ -109,8 +108,8 @@ alias fqr='function() {qrcode-terminal http://$(hostname):8888/"$@"; echo http:/
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 
 # open aliases
-alias oa='subl ~/.aliases'
-alias og='subl ~/.gitconfig'
+alias oa='atom ~/.aliases'
+alias og='atom ~/.gitconfig'
 alias sa='source ~/.zshrc'
 
 # middleman
@@ -124,9 +123,6 @@ alias bswp='function() {source ~/.aliases && browser-sync start --proxy "$(fab c
 # if not installed: brew install wakeonlan
 alias wblob='wakeonlan 00:25:22:03:D1:21'
 
-# npm
-alias test='npm run test'
-
 # sourcetree
 alias stree='open -a SourceTree "$(git rev-parse --show-toplevel)"'
 alias sourcetree='stree'
@@ -134,3 +130,14 @@ alias sourcetree='stree'
 alias t='z'
 
 alias fritz='function() { open http://fritz.box/; }'
+
+# backstop.js
+alias bs_ref='backstop reference --configPath=config/backstop.js'
+alias bs_test='backstop test --configPath=config/backstop.js --readyEvent=backstopjs_ready'
+alias bs_open='backstop openReport --configPath=config/backstop.js'
+
+# weinre
+alias localweinre='weinre --boundHost -all- --httpPort 4242'
+
+# android
+alias android='~/Library/Android/sdk/tools/emulator -netdelay none -netspeed full -avd 320x480-jelly-4_1'
