@@ -32,6 +32,7 @@
 
   # Push local changes to tracked remote branch
   p = push origin
+  pt = push origin --tags
 
   # Clone a repository including all submodules
   clone = clone --recursive

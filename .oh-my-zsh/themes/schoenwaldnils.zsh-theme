@@ -1,21 +1,9 @@
-LCHAR_WIDTH=%1G
-
-function prompt_char {
-  git branch >/dev/null 2>/dev/null && echo '±' && return
-  hg root >/dev/null 2>/dev/null && echo '☿' && return
-  echo '○'
-}
-
-# Choose you delimiter
-# LCHAR='>'
-LCHAR=$(prompt_char)
-
-PROMPT='%{$fg[blue]%}%c %{$fg_bold[yellow]%}%{$LCHAR$LCHAR_WIDTH%} %{$reset_color%}'
+PROMPT='%{$fg[blue]%}%c %{$fg_bold[yellow]%}%{$reset_color%}'
 RPROMPT='$(git_super_status)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_SEPARATOR=" "
+ZSH_THEME_GIT_PROMPT_SEPARATOR=""
 ZSH_THEME_GIT_PROMPT_BRANCH="%{$fg[green]%}"
 ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[yellow]%}%{●%G%}"
 ZSH_THEME_GIT_PROMPT_CONFLICTS="%{$fg[red]%}%{✖%G%}"
