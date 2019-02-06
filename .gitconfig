@@ -81,13 +81,13 @@
 [core]
 
   # Use custom `.gitignore` and `.gitattributes`
-  excludesfile = ~/.gitignore_global
+	excludesfile = /Users/nils/.gitignore_global
   attributesfile = ~/.gitattributes
 
   # Treat spaces before tabs and all kinds of trailing whitespace as an error
-  # [default] trailing-space: looks for spaces at the end of a line
   # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
-  whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+  # [default] trailing-space: looks for spaces at the end of a line
+  # whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 
   # Make `git rebase` safer on OS X
   # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
@@ -96,12 +96,13 @@
   # Prevent showing files whose names contain non-ASCII symbols as unversioned.
   # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
   precomposeunicode = false
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [color]
 
   # Use colors in Git commands that are capable of colored output when
   # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-  ui = auto
+	ui = true
 
 [color "branch"]
 
@@ -111,10 +112,12 @@
 
 [color "diff"]
 
-  meta = yellow bold
-  frag = magenta bold # line info
-  old = red # deletions
-  new = green # additions
+	meta = 227
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	commit = 227 bold
+	whitespace = red reverse
 
 [color "status"]
 
@@ -126,6 +129,7 @@
 
   # Detect copies as well as renames
   renames = copies
+	tool = p4mergetool
 
 [diff "bin"]
   # Use `hexdump` to diff binary files
@@ -140,7 +144,7 @@
 
   # Include summaries of merged commits in newly created merge commit messages
   log = true
-  tool = meld
+	tool = p4mergetool
 
 [push]
 
@@ -149,7 +153,7 @@
   # `git config --global push.default simple`. See http://git.io/mMah-w.
   default = current
   # Make `git push` push relevant annotated tags when pushing branches out.
-  followTags = true
+	followTags = true
 
 # URL shorthands
 
@@ -173,14 +177,8 @@
 
   insteadOf = "gist:"
 [user]
-  name = Nils Schönwald
-  email = nils@schoenwald.media
-[difftool "sourcetree"]
-  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-  path =
-[mergetool "sourcetree"]
-  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-  trustExitCode = true
+	name = Nils Schönwald
+	email = nils@schoenwald.media
 
 [transfer]
         fsckobjects = true
@@ -190,3 +188,38 @@
         fsckobjects = true
 [clean]
   requireForce = false
+[commit]
+	template = /Users/nils/.stCommitMsg
+[filter "spacetabs"]
+  clean = tabs-to-spaces-script
+  smudge = spaces-to-tabs-script
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
+[merge]
+    tool = p4mergetool
+[diff]
+    tool = p4mergetool
+
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =
+
+[mergetool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
+	trustExitCode = false
+[difftool "p4mergetool"]
+	cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $LOCAL $REMOTE
+[fsck]
+	zeroPaddedFilemode = ignore
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22

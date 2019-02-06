@@ -102,9 +102,16 @@ alias gff='git flow feature'
 alias gfh='git flow hotfix'
 alias gfr='git flow release'
 
+# resolve package-lock.json conflict
+
+alias solvePackageLock='function() {git reset -- package-lock.json && rm package-lock.json && npm install && git add package-lock.json}'
+
+
 # github flow
 alias ghf='function() {git branch feature/$@ && git checkout -q feature/$@;}'
-alias ghh='function() {git branch hotfix/$@ && git checkout -q hotfix/$@;}'
+alias ghff='function() {git branch feature/$@ && git checkout -q feature/$@;}'
+alias ghfb='function() {git branch bug/$@ && git checkout -q bug/$@;}'
+alias ghfh='function() {git branch hotfix/$@ && git checkout -q hotfix/$@;}'
 
 alias cz='git cz'
 alias cleanbranches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
@@ -124,10 +131,6 @@ alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 alias oa='code ~/.aliases'
 alias og='code ~/.gitconfig'
 alias sa='source ~/.zshrc'
-
-# middleman
-alias mb='bundle exec middleman build'
-alias ms='bundle exec middleman server -p 4242'
 
 # browsersync
 alias bswp='function() {source ~/.aliases && browser-sync start --proxy "$(fab config:mbb getProperty:host |tail -1)" --files "wp-content/themes/$@/build/*.css" --reload-delay "50";}'
@@ -154,3 +157,7 @@ alias localweinre='weinre --boundHost -all- --httpPort 4242'
 
 # android
 alias android='~/Library/Android/sdk/tools/emulator -netdelay none -netspeed full -avd 320x480-jelly-4_1'
+
+#chrome
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias chrome-full='function() {/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --app="$@"}'
