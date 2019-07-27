@@ -49,32 +49,6 @@ alias pumpitup='osascript -e "set volume 7"'
 # Lock the screen (when going AFK)
 alias afk='/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
 
-# vagrant
-alias vu='cd ~/multibasebox/; vagrant up; cd -'
-
-# Fabric
-alias mbb='fab config:mbb'
-alias copyssh='fab config:mbb docker:copySSHKeys'
-alias drush='function() {fab config:mbb drush:"$@";}'
-alias den='function() {fab config:mbb drush:"en $@ -y"}'
-alias finstall='fab config:mbb install'
-alias fcc='fab config:mbb drush:"cc all"'
-alias fcr='fab config:mbb drush:"cr"'
-alias fct='fab config:mbb drush:"cc theme-registry"'
-alias frun='fab config:mbb docker:run'
-alias fstop='fab config:mbb docker:stop'
-alias fres='fab config:mbb reset'
-alias flog='fab config:mbb docker:logs'
-alias fcopy='function() {fab config:mbb copyFrom:"$@";}'
-alias fcopyfiles='function() {fab config:mbb copyFilesFrom:"$@";}'
-alias fcopydb='function() {fab config:mbb copyDBFrom:"$@";}'
-alias fdpl='function() {fab config:"$@" deploy;}'
-alias flocal='function() { open "http://$(fab config:mbb getProperty:host |tail -1)"}'
-alias fshare='fab config:mbb docker:startRemoteAccess'
-alias fd='function() {fab config:mbb drush:fd;}'
-alias fu='function() {fab config:mbb drush:"fu $@ -y";}'
-alias fu8='function() {fab config:mbb drush:"config-export staging -y";}'
-
 alias docker=docker
 alias dc='docker-compose'
 alias dcu='docker-compose up'
@@ -110,8 +84,9 @@ alias solvePackageLock='function() {git reset -- package-lock.json && rm package
 # github flow
 alias ghf='function() {git branch feature/$@ && git checkout -q feature/$@;}'
 alias ghff='function() {git branch feature/$@ && git checkout -q feature/$@;}'
-alias ghfb='function() {git branch bug/$@ && git checkout -q bug/$@;}'
+alias ghfb='function() {git branch bugfix/$@ && git checkout -q bugfix/$@;}'
 alias ghfh='function() {git branch hotfix/$@ && git checkout -q hotfix/$@;}'
+alias ghft='function() {git branch temp/$@ && git checkout -q temp/$@;}'
 
 alias cz='git cz'
 alias cleanbranches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
