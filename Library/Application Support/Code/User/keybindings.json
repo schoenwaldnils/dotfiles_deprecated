@@ -1,0 +1,8 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  {
+    "key": "cmd+shift+d",
+    "command": "lafe.duplicateCode",
+    "when": "editorTextFocus"
+  }
+]
