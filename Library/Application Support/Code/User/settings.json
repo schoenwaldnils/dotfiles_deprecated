@@ -59,5 +59,8 @@
   "gitlens.views.lineHistory.enabled": true,
   "liveServer.settings.donotShowInfoMsg": true,
   "liveshare.featureSet": "insiders",
-  "prettier.eslintIntegration": true
+  "prettier.eslintIntegration": true,
+  "sync.gist": "058f0bf78ef7753e51799d45069173c9",
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true
 }
