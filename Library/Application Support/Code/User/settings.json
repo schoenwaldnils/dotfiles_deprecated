@@ -1,13 +1,45 @@
 {
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "atomKeymap.promptV3Features": true,
-  "workbench.iconTheme": "material-icon-theme",
+  "color-highlight.markerType": "underline",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  },
+  "editor.codeLens": true,
+  "editor.cursorStyle": "line-thin",
+  "editor.formatOnSave": true,
+  "editor.lineDecorationsWidth": 8,
+  "editor.lineNumbers": "off",
+  "editor.renderControlCharacters": false,
+  "editor.renderIndentGuides": false,
+  "editor.renderLineHighlight": "none",
+  "editor.renderWhitespace": "selection",
+  "editor.rulers": [],
+  "editor.matchBrackets": "never",
+  "editor.minimap.enabled": false,
+  "editor.padding": {
+    "top": 50,
+    "bottom": 50
+  },
+  "editor.scrollBeyondLastLine": false,
   "editor.tabSize": 2,
-  "editor.renderWhitespace": "all",
-  "editor.rulers": [80, 100, 120],
-  "html.format.endWithNewline": true,
-  "terminal.explorerKind": "external",
-  "terminal.external.osxExec": "Terminal.app",
-  "workbench.colorTheme": "Base16 Eighties Dark",
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
   "emmet.preferences": {
     "caniuse.vendors": 0,
     "css": {
@@ -18,14 +50,17 @@
   },
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.triggerExpansionOnTab": true,
-  "search.exclude": {
-    "**/node_modules": true,
-    "**/bower_components": true
-  },
-  "window.zoomLevel": 0,
+  "eslint.alwaysShowStatus": true,
   "explorer.autoReveal": false,
-  "material-icon-theme.showUpdateMessage": false,
   "explorer.confirmDragAndDrop": false,
+  "files.associations": {
+    "Dockerfile-build": "dockerfile",
+    "*.js": "javascriptreact",
+    ".stylelintrc": "json"
+  },
+  "files.exclude": {
+    "**/.git": false
+  },
   "gitlens.advanced.messages": {
     "suppressCommitHasNoPreviousCommitWarning": false,
     "suppressCommitNotFoundWarning": false,
@@ -37,30 +72,95 @@
     "suppressShowKeyBindingsNotice": true,
     "suppressWelcomeNotice": true
   },
-  "gitlens.keymap": "none",
-  "gitlens.hovers.currentLine.enabled": false,
-  "files.exclude": {
-    "**/.git": false
-  },
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
-  },
-  "files.associations": {
-    "Dockerfile-build": "dockerfile",
-    "*.js": "javascriptreact"
-  },
   "gitlens.codeLens.authors.enabled": false,
-  "gitlens.codeLens.recentChange.enabled": false,
   "gitlens.codeLens.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.hovers.currentLine.enabled": false,
   "gitlens.hovers.enabled": false,
+  "gitlens.keymap": "none",
   "gitlens.statusBar.enabled": false,
-  "javascript.updateImportsOnFileMove.enabled": "never",
   "gitlens.views.fileHistory.enabled": true,
   "gitlens.views.lineHistory.enabled": true,
+  "html.format.endWithNewline": true,
+  "javascript.updateImportsOnFileMove.enabled": "never",
   "liveServer.settings.donotShowInfoMsg": true,
   "liveshare.featureSet": "insiders",
-  "prettier.eslintIntegration": true,
+  "material-icon-theme.activeIconPack": "react",
+  "material-icon-theme.showUpdateMessage": false,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true
+  },
   "sync.gist": "058f0bf78ef7753e51799d45069173c9",
-  "eslint.autoFixOnSave": true,
-  "eslint.alwaysShowStatus": true
+  "terminal.explorerKind": "external",
+  "terminal.external.osxExec": "Terminal.app",
+  "timeline.excludeSources": [],
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.lineHeight": 1.5,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorStyle": "line",
+  "typescript.format.enable": false,
+  "vetur.format.defaultFormatter.js": "prettier-eslint",
+  "vetur.format.enable": false,
+  "window.zoomLevel": 0,
+  "workbench.activityBar.visible": false,
+  "workbench.colorTheme": "Base16 Eighties Dark",
+  "workbench.fontAliasing": "antialiased",
+  "editor.lineHeight": 28,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.startupEditor": "none",
+  "workbench.statusBar.visible": false,
+  "workbench.sideBar.location": "left",
+  "bracketPairColorizer.highlightActiveScope": true,
+  "bracketPairColorizer.showBracketsInRuler": true,
+  "breadcrumbs.enabled": false,
+  "zenMode.fullScreen": false,
+  "hexdump.btnEnabled": false,
+  "gitlens.menus": {
+    "editor": {
+      "blame": false,
+      "clipboard": true,
+      "compare": true,
+      "details": false,
+      "history": false,
+      "remote": false
+    },
+    "editorGroup": {
+      "blame": false,
+      "compare": false
+    },
+    "editorTab": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "explorer": {
+      "clipboard": true,
+      "compare": true,
+      "history": true,
+      "remote": true
+    },
+    "scmGroup": {
+      "compare": false,
+      "openClose": false,
+      "stash": false,
+      "stashInline": false
+    },
+    "scmItem": {
+      "clipboard": false,
+      "compare": false,
+      "history": false,
+      "remote": false,
+      "stash": false
+    }
+  },
+  "vscode_custom_css.imports": [
+    "file:///Users/n/Library/Application Support/Code/User/customCSS.css"
+  ],
+  "vscode_custom_css.policy": true,
+  "gitlens.currentLine.enabled": false,
+  "editor.fontSize": 16,
+  "bracketPairColorizer.showHorizontalScopeLine": false,
+  "bracketPairColorizer.showVerticalScopeLine": false
 }

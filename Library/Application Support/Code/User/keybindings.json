@@ -4,5 +4,30 @@
     "key": "cmd+shift+d",
     "command": "lafe.duplicateCode",
     "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+shift+i",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  {
+    "key": "cmd+shift+i",
+    "command": "workbench.action.terminal.focus",
+    "when": "!terminalFocus"
+  },
+  // https://code.visualstudio.com/docs/getstarted/keybindings#_activefocused-view-or-panel-when-clause-context
+  {
+    "key": "shift+cmd+e",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "activeViewlet == 'workbench.view.explorer'"
+  },
+  {
+    "key": "shift+cmd+f",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "activeViewlet == 'workbench.view.search'"
+  },
+  {
+    "key": "shift+cmd+r",
+    "command": "workbench.action.toggleActivityBarVisibility",
+    "when": "!explorerFocus"
   }
 ]
