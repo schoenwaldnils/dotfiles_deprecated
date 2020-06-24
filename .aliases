@@ -136,3 +136,6 @@ alias android='~/Library/Android/sdk/tools/emulator -netdelay none -netspeed ful
 #chrome
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias chrome-full='function() {/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --app="$@"}'
+
+#OBS
+alias obs='cd /Users/n/repos/other/obs-studio/build/rundir/RelWithDebInfo/bin && ./obs'
