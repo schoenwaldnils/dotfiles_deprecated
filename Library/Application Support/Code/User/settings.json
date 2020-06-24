@@ -13,6 +13,7 @@
   },
   "atomKeymap.promptV3Features": true,
   "color-highlight.markerType": "underline",
+  "diffEditor.ignoreTrimWhitespace": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.stylelint": true
@@ -37,6 +38,9 @@
   "editor.tabSize": 2,
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
+  "editor.emptySelectionClipboard": false,
+  "editor.quickSuggestionsDelay": 0,
+  "editor.formatOnPaste": true,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },

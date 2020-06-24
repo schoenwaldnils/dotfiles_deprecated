@@ -29,5 +29,9 @@
     "key": "shift+cmd+r",
     "command": "workbench.action.toggleActivityBarVisibility",
     "when": "!explorerFocus"
+  },
+  {
+    "key": "cmd+k cmd+k",
+    "command": "workbench.action.toggleZenMode"
   }
 ]
